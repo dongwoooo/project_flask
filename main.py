@@ -1,9 +1,11 @@
 #-*- coding:utf-8 -*-
-from flask import Flask, render_template
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from urllib import urlopen
 from bs4 import BeautifulSoup
+import tweepy
 import os
 import codecs
+import json
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
@@ -36,6 +38,22 @@ def webtoon():
 		list.append(img['src'])
 	print list
 	return render_template('webtoon.html', list=list)
+
+@app.route('/twitter')
+def twitter():
+	return render_template('twitter.html')
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+	if request.method == "POST":
+		auth = tweepy.OAuthHandler('Ymy7VTAZSx4tuY0skkYHHBGKn', 'wQafteJSPwf1egyrN7KJgLxZubbKCvzKUPSa5p2XmuGMypcx0j')
+		auth.set_access_token('186740931-1OAFTPIVjv9gRBv0pPBnoJ8ACPHKa6zvbIHWfsMT', 'Cw9PdgQJuTdAVAzbOINi8fQXcjOq68EVVL3Ak8OvN9oDF')
+		api = tweepy.API(auth)
+		response = []
+		results = api.search(request.form['keyword'], show_user=True)
+		for result in results:
+			response.append({ 'id': result.user.screen_name, 'text': result.text})
+		return json.dumps(response)
 
 @app.errorhandler(404)
 def page_not_found(e):

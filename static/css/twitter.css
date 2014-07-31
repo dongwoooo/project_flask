@@ -1,0 +1,53 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+body {
+	background-color: rgb(200,200,200);
+	font-family: serif;
+}
+
+.banner {
+	margin-top: 50px;
+}
+
+h1 {
+	text-align: center;
+}
+
+#twit {
+	font-size: 70px;
+	font-weight: 200;
+}
+
+#her {
+	font-size: 80px;
+	font-weight: 200;
+}
+
+.search {
+	margin-top: 35px;
+}
+
+#submit, #keyword{
+	float: right;
+}
+
+#initial_message {
+	text-align: center;
+}
+
+.result {
+	margin-top: 20px;
+	padding: 30px 20px 30px 40px;
+	background-color: rgba(255,255,255,0.6);
+	border-radius: 20px;
+	line-height: 3em;
+}
+
+.id {
+	font-weight: bold;
+}
+
+.mention {
+	font-size: 12px;
+}

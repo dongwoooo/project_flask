@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dongwoo.me</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/twitter.css') }}">
+	<script src="{{ url_for('static', filename='js/twitter.js') }}"></script>
+</head>
+<body>
+	<div class="container banner">
+		<h1><span id="twit">twit</span><span id="her">HER</span></h1>
+	</div>
+	<div class="col-md-offset-2 col-md-8 search">
+		<input type="submit" value="search" id="submit"/>
+		<input type="text" name="username" id="keyword"/>
+	</div>
+	<div class="col-md-offset-1 col-md-10 result">
+		<p><span id="initial_message">search somthing.</span></p>
+	</div>
+</body>
+</html>
